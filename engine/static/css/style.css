@@ -89,7 +89,7 @@ body {
     filter: grayscale(100%);
   }  
   .navbar {
-    font-family: Montserrat, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
     margin-bottom: 0;
     background-color: #2d2d30;
     border: 0;
@@ -98,6 +98,8 @@ body {
     opacity: 0.9;
   }
   .navbar li a, .navbar .navbar-brand { 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    font-size: 14px !important;
     color: #d5d5d5 !important;
   }
   .navbar-nav li a:hover {

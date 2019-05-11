@@ -112,7 +112,7 @@ d3.json(url, function(response)
 var myMap = L.map("map-id", {
   center: [29.76, -95.36],
   zoom: 6,
-  layers: [light, earthquakes]
+  layers: [satellite, earthquakes]
 });
 
 // For the map to fill the window

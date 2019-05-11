@@ -63,45 +63,16 @@ var baseMaps = {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // Overlays that may be toggled on or off
-var earthquakes = new L.LayerGroup();
-var faultlines = new L.LayerGroup();
+// var earthquakes = new L.LayerGroup();
+// var faultlines = new L.LayerGroup();
+var gerrymanders = new L.LayerGroup();
 
 var overlayMaps = {
-  "Earthquakes": earthquakes,
-  "Fault Lines": faultlines
+  // "Earthquakes": earthquakes,
+  // "Fault Lines": faultlines
+  "Gerrymanders": gerrymanders
 };
 
-var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
-
-d3.json(url, function(response)
-{
-  console.log(response.features.length);
-  for (var i = 0; i < response.features.length; i++) 
-  {
-    //magnitude
-    var mag = response.features[i].properties.mag;
-    var circlesize = mag*mag; // give it some more contrast
-    var circlecolor = getColor(mag);
-
-    //coordinates
-    var lat = response.features[i].geometry.coordinates[0];
-    var lon = response.features[i].geometry.coordinates[1];
-    // other not-so-useful attributes
-    var title = response.features[i].properties.title;
-    //console.log(title);
-
-    // Create new marker
-    var newMarker = L.circleMarker([lat, lon],{
-      radius: circlesize,
-      weight: 1,
-      color: "steelblue",
-      fillColor: circlecolor
-    });
-    // add the new marker to the layer
-    newMarker.addTo(earthquakes);
-    newMarker.bindPopup(title);
-  }
-});
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // END OVERLAY LAYERS
@@ -111,8 +82,8 @@ d3.json(url, function(response)
 // Create map object and set default layers
 var myMap = L.map("map-id", {
   center: [29.76, -95.36],
-  zoom: 6,
-  layers: [satellite, earthquakes]
+  zoom: 12,
+  layers: [satellite, gerrymanders]
 });
 
 // For the map to fill the window
@@ -128,7 +99,8 @@ L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // GITHUB RAW that's the way!
-url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
+//url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
+url2 = `/houston_geojson`;
 // for the faultlines
 //fetch("tectonicplates-master/GeoJSON/PB2002_boundaries.json")
 //  .then(function(data){
@@ -144,7 +116,7 @@ d3.json(url2, function(data){
           weight: 1.5
       }
     }
-    }).addTo(faultlines);
+    }).addTo(gerrymanders);
   });
 
 

@@ -36,6 +36,10 @@ db = SQLAlchemy(app)
 # Samples_Metadata = Base.classes.sample_metadata
 # Samples = Base.classes.samples
 
+@app.route("/map")
+def map():
+    """Return the homepage."""
+    return render_template("map.html")
 
 @app.route("/")
 def index():

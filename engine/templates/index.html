@@ -47,12 +47,17 @@
   </div>
 </nav>
 
+<!-- Introductory pictures -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -80,6 +85,38 @@
           <p>Getting satellite luminosity data right could help us better understand what works and what doesn't in urban development.</p>
         </div>      
       </div>
+
+      <div class="item">
+        <img src="/static/pics/sentinel4.jpg" alt="sentinel4" width="1920" height="1080">
+        <div class="carousel-caption">
+          <h3>Land Management</h3>
+          <p>Satellite data is a powerful tool for urban & rural land management, from sustainable development to crisis monitoring.</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="/static/pics/sentinel5.jpg" alt="sentinel5" width="1920" height="1080">
+        <div class="carousel-caption">
+          <h3>Multiple Spectra</h3>
+          <p>The Sentinel-2 satellites will each carry a single multi-spectral instrument (MSI) with 13 spectral channels in the visible/near infrared (VNIR) and short wave infrared spectral range (SWIR).</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="/static/pics/sentinel6.jpg" alt="sentinel6" width="1920" height="1080">
+        <div class="carousel-caption">
+          <h3>Ecosystem Protection</h3>
+          <p>The protection of diverse ecosystems, such as the arctic ecosystem, can benefit from satellite technology which provides multiple indicators for risk factors such as climate change.</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="/static/pics/sentinel7.jpg" alt="sentinel7" width="1920" height="1080">
+        <div class="carousel-caption">
+          <h3>Food Safety</h3>
+          <p>The need to feed an ever increasing global population demands new technology. Satellite leads the initiative in guaranteeing our food safety by providing analysis, monitoring, and strategy for modern agriculture.</p>
+        </div>      
+      </div>
     </div>
 
     <!-- Left and right controls -->
@@ -93,187 +130,67 @@
     </a>
 </div>
 
-<!-- Container (The Band Section) -->
+<!-- Container (The Main Section) -->
 <div id="main" class="container text-center">
-  <h3>THE BAND</h3>
-  <p><em>We love music!</em></p>
-  <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <h3>DEEP LEARNING ON SATELLITE DATA</h3>
+  <p ><em>When vision meets technology</em></p>
+  <p style="text-align:left">The purpose of our project is to conduct a study on the land usage composition of our areas of interest. Our project engages resources in the following sections:</p>
+  <p style="text-align:left">1) Cloud Resource: We used Amazon Web Service (AWS) for data storage and computing resources.</p>
+  <p style="text-align:left">2) Computing Engine: For the algorithm to learn from satellite data, we employ a deep learning model - a Convoluted Neural Network (CNN) of 5 hidden layers.</p>
+  <p style="text-align:left">3) Training and Test Data: For model training and validation, we used the Deepsat SAT-6 datasets - a total of 330,000 scenes classified into 6 categories spanning the whole of the Continental United States (CONUS). (REF: Saikat Basu, Sangram Ganguly, Supratik Mukhopadhyay, Robert Dibiano, Manohar Karki and Ramakrishna Nemani, DeepSat - A Learning framework for Satellite Imagery, ACM SIGSPATIAL 2015.)</p>
+  <p style="text-align:left">4) Data to Study: We use planet.com API to obtain satellite data real-time, upon the user's request, on which we perform our machine learning study.</p>
+  <p style="text-align:left">We have a comprehensive set of visualization on the land usage of Houston to present, but before that...</p>
   <br>
-  <div class="row">
-    <div class="col-sm-4">
-      <p class="text-center"><strong>Name</strong></p><br>
-      <a href="#demo" data-toggle="collapse">
-        <img src="bandmember.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo" class="collapse">
-        <p>Guitarist and Lead Vocalist</p>
-        <p>Loves long walks on the beach</p>
-        <p>Member since 1988</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <p class="text-center"><strong>Name</strong></p><br>
-      <a href="#demo2" data-toggle="collapse">
-        <img src="bandmember.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo2" class="collapse">
-        <p>Drummer</p>
-        <p>Loves drummin'</p>
-        <p>Member since 1988</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <p class="text-center"><strong>Name</strong></p><br>
-      <a href="#demo3" data-toggle="collapse">
-        <img src="bandmember.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo3" class="collapse">
-        <p>Bass player</p>
-        <p>Loves math</p>
-        <p>Member since 2005</p>
-      </div>
-    </div>
-  </div>
+  <!-- Button to introduce map -->
+  <button class="btn" data-toggle="modal" data-target="#myModal">BEGIN YOUR JOURNEY</button>
+  <!-- <form action="{{ url_for('map') }}">
+    <button class="btn" type="submit">BEGIN YOUR JOURNEY</button>
+ </form> -->
 </div>
 
-<!-- Container (TOUR Section) -->
-<div id="tour" class="bg-1">
-  <div class="container">
-    <h3 class="text-center">TOUR DATES</h3>
-    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
-    <ul class="list-group">
-      <li class="list-group-item">September <span class="label label-danger">Sold Out!</span></li>
-      <li class="list-group-item">October <span class="label label-danger">Sold Out!</span></li> 
-      <li class="list-group-item">November <span class="badge">3</span></li> 
-    </ul>
-    
-    <div class="row text-center">
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="paris.jpg" alt="Paris" width="400" height="300">
-          <p><strong>Paris</strong></p>
-          <p>Friday 27 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="newyork.jpg" alt="New York" width="400" height="300">
-          <p><strong>New York</strong></p>
-          <p>Saturday 28 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal -->
+  <!-- Modal (that shows up after you click the button)-->
   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
-        </div>
-        <div class="modal-body">
-          <form role="form">
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
-              <input type="number" class="form-control" id="psw" placeholder="How many?">
-            </div>
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-            </div>
-              <button type="submit" class="btn btn-block">Pay 
-                <span class="glyphicon glyphicon-ok"></span>
-              </button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-            <span class="glyphicon glyphicon-remove"></span> Cancel
-          </button>
-          <p>Need <a href="#">help?</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Container (Contact Section) -->
-<div id="contact" class="container">
-  <h3 class="text-center">Contact</h3>
-  <p class="text-center"><em>We love our fans!</em></p>
-
-  <div class="row">
-    <div class="col-md-4">
-      <p>Fan? Drop a note.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
-      <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
-      <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
-    </div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-      <br>
-      <div class="row">
-        <div class="col-md-12 form-group">
-          <button class="btn pull-right" type="submit">Send</button>
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4><span class="glyphicon glyphicon-globe"></span>BEGIN YOUR JOURNEY</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form" action="{{ url_for('map') }}" >
+              <div class="form-group">
+                <label for="psw"><span class="glyphicon glyphicon-search"></span> Search by name</label>
+                <input type="text" class="form-control" id="usrname" placeholder="Fredericksburg, TX">
+              </div>
+              <div class="form-group">
+                <label for="usrname"><span class="glyphicon glyphicon-screenshot"></span> Or, input latitude/longitude</label>
+                <input type="number" class="form-control" id="psw" placeholder="30.2752° N, 98.8720° W">
+              </div>
+                <button type="submit" class="btn btn-block">GO! 
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span> Cancel
+            </button>
+            <p>Need <a href="#">help?</a></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <br>
-  <h3 class="text-center">From The Blog</h3>  
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Mike</a></li>
-    <li><a data-toggle="tab" href="#menu1">Chandler</a></li>
-    <li><a data-toggle="tab" href="#menu2">Peter</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <h2>Mike Ross, Manager</h2>
-      <p>Man, we've been on the road for some time now. Looking forward to lorem ipsum.</p>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-      <h2>Chandler Bing, Guitarist</h2>
-      <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
-    </div>
-    <div id="menu2" class="tab-pane fade">
-      <h2>Peter Griffin, Bass player</h2>
-      <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
-    </div>
-  </div>
-</div>
-
-<!-- Image of location/map -->
-<img src="map.jpg" class="img-responsive" style="width:100%">
 
 <!-- Footer -->
 <footer class="text-center">
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a><br><br>
-  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p> 
+  <p>Team members: Ahmeda Cheick, Madelaine Davis, ZiAng Zhang</p> 
+  <p>All rights reserved 2019</p> 
 </footer>
 
 <!-- JavaScript -->

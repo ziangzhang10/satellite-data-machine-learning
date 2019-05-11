@@ -51,10 +51,10 @@ var outdoors = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png
 
 // Only one base layer can be shown at a time
 var baseMaps = {
-  "Satellite": satellite,
-  "Outdoors": outdoors,
   "Light Map": light,
-  "Dark Map": dark
+  "Dark Map": dark,
+  "Satellite": satellite,
+  "Outdoors": outdoors
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////

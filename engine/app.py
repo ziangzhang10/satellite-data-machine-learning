@@ -22,9 +22,10 @@ app = Flask(__name__)
 @app.route("/houston_geojson")
 def houston_geojson():
     """Return the geojson page for mapping."""
-    filepath = os.path.join("static", "json", "houston_.geojson")
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    filepath = os.path.join(THIS_FOLDER, "static", "json", "houston_.geojson")
     with open(filepath, 'r') as f:
-        houston_geojson = geojson.load(f)
+        houston_geojson = geojson.load(f) 
     return jsonify(houston_geojson)
 
 @app.route("/map")

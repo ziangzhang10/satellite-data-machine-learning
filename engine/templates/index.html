@@ -3,6 +3,7 @@
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
   <title>Satellite Data Machine Learning</title>
+  <link rel="icon" href="/static/icons/sputnik.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -24,11 +25,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">Logo</a>
+      <!-- <a class="navbar-brand" href="#myPage" id="mainBoxFull"> -->
+      <a href="{{ url_for('index') }}" id="mainBoxFull">
+        <img src="/static/icons/sputnik.png" , width="50" , height="50" , alt="Logo">
+      </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">HOME</a></li>
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
         <li><a href="#data">DATA</a></li>
         <li><a href="#algorithm">ALGORITHM</a></li>
         <li><a href="#analysis">ANALYSIS</a></li>
@@ -162,11 +166,11 @@
             <form role="form" action="{{ url_for('map') }}" >
               <div class="form-group">
                 <label for="psw"><span class="glyphicon glyphicon-search"></span> Search by name</label>
-                <input type="text" class="form-control" id="usrname" placeholder="Fredericksburg, TX">
+                <input type="text" class="form-control" id="usrname" placeholder="Houston, TX">
               </div>
               <div class="form-group">
                 <label for="usrname"><span class="glyphicon glyphicon-screenshot"></span> Or, input latitude/longitude</label>
-                <input type="number" class="form-control" id="psw" placeholder="30.2752° N, 98.8720° W">
+                <input type="number" class="form-control" id="psw" placeholder="29.7604° N, 95.3698° W">
               </div>
                 <button type="submit" class="btn btn-block">GO! 
                   <span class="glyphicon glyphicon-ok"></span>
@@ -174,7 +178,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <button type="submit" class="btn btn-default pull-left" data-dismiss="modal">
               <span class="glyphicon glyphicon-remove"></span> Cancel
             </button>
             <p>Need <a href="#">help?</a></p>

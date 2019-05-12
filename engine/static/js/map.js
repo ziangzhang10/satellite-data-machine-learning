@@ -63,45 +63,16 @@ var baseMaps = {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // Overlays that may be toggled on or off
-var earthquakes = new L.LayerGroup();
-var faultlines = new L.LayerGroup();
+// var earthquakes = new L.LayerGroup();
+// var faultlines = new L.LayerGroup();
+var gerrymanders = new L.LayerGroup();
 
 var overlayMaps = {
-  "Earthquakes": earthquakes,
-  "Fault Lines": faultlines
+  // "Earthquakes": earthquakes,
+  // "Fault Lines": faultlines
+  "Gerrymanders": gerrymanders
 };
 
-var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
-
-d3.json(url, function(response)
-{
-  console.log(response.features.length);
-  for (var i = 0; i < response.features.length; i++) 
-  {
-    //magnitude
-    var mag = response.features[i].properties.mag;
-    var circlesize = mag*mag; // give it some more contrast
-    var circlecolor = getColor(mag);
-
-    //coordinates
-    var lat = response.features[i].geometry.coordinates[0];
-    var lon = response.features[i].geometry.coordinates[1];
-    // other not-so-useful attributes
-    var title = response.features[i].properties.title;
-    //console.log(title);
-
-    // Create new marker
-    var newMarker = L.circleMarker([lat, lon],{
-      radius: circlesize,
-      weight: 1,
-      color: "steelblue",
-      fillColor: circlecolor
-    });
-    // add the new marker to the layer
-    newMarker.addTo(earthquakes);
-    newMarker.bindPopup(title);
-  }
-});
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // END OVERLAY LAYERS
@@ -111,8 +82,8 @@ d3.json(url, function(response)
 // Create map object and set default layers
 var myMap = L.map("map-id", {
   center: [29.76, -95.36],
-  zoom: 6,
-  layers: [satellite, earthquakes]
+  zoom: 12,
+  layers: [satellite, gerrymanders]
 });
 
 // For the map to fill the window
@@ -127,26 +98,56 @@ L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 // BEGIN ADDING FAULT LINES
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+
 // GITHUB RAW that's the way!
-url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
+//url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
+url2 = `/houston_geojson`;
 // for the faultlines
 //fetch("tectonicplates-master/GeoJSON/PB2002_boundaries.json")
 //  .then(function(data){
-d3.json(url2, function(data){
-    console.log(typeof(data));
-    L.geoJson(data, {
-      // Style each feature (in this case a region)
-      style: function(feature) {
-        return {
-          color: "white",
+d3.json(url2, function (data) {
+  console.log(typeof (data));
+  L.geoJson(data, {
+    // Style each feature (in this case a region)
+    style: function (feature) {
+      return {
+        color: "red",
 
-          fillOpacity: 0.5,
-          weight: 1.5
-      }
+        fillOpacity: 0.3,
+        weight: 1.5
+      };
+    },
+    // Called on each feature
+    onEachFeature: function (feature, layer) {
+      // Set mouse events to change map styling
+      layer.on({
+        // When a user's mouse touches a map feature, the mouseover event calls this function, that feature's opacity changes to 90% so that it stands out
+        mouseover: function (event) {
+          hood = event.target;
+          hood.setStyle({
+            fillOpacity: 0.6
+          });
+        },
+        // When the cursor no longer hovers over a map feature - when the mouseout event occurs - the feature's opacity reverts back to 50%
+        mouseout: function (event) {
+          hood = event.target;
+          hood.setStyle({
+            fillOpacity: 0.3
+          });
+        },
+        // When a feature (neighborhood) is clicked, it is enlarged to fit the screen
+        click: function (event) {
+          myMap.fitBounds(event.target.getBounds());
+        }
+      });
+      // Giving each feature a pop-up with information pertinent to it
+      //layer.bindPopup("<h1>" + feature.properties.ID + "</h1> <hr> <h2>" + feature.properties.Legend + "</h2>");
+      layer.bindPopup("<h2>Region " + feature.properties.ID + " of type " + feature.properties.Legend + "</h2><hr>" + '<form role="form" action="specific_analysis" >  <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
+
     }
-    }).addTo(faultlines);
-  });
-
+  }).addTo(gerrymanders);
+});
 
 
 ////////////////////////////////////////////////////////////////////////////////////////

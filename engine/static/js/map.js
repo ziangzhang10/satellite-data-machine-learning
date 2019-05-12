@@ -98,6 +98,8 @@ L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 // BEGIN ADDING FAULT LINES
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+
 // GITHUB RAW that's the way!
 //url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
 url2 = `/houston_geojson`;
@@ -110,9 +112,9 @@ d3.json(url2, function (data) {
     // Style each feature (in this case a region)
     style: function (feature) {
       return {
-        color: "white",
+        color: "red",
 
-        fillOpacity: 0.5,
+        fillOpacity: 0.3,
         weight: 1.5
       };
     },
@@ -124,14 +126,14 @@ d3.json(url2, function (data) {
         mouseover: function (event) {
           hood = event.target;
           hood.setStyle({
-            fillOpacity: 0.9
+            fillOpacity: 0.6
           });
         },
         // When the cursor no longer hovers over a map feature - when the mouseout event occurs - the feature's opacity reverts back to 50%
         mouseout: function (event) {
           hood = event.target;
           hood.setStyle({
-            fillOpacity: 0.5
+            fillOpacity: 0.3
           });
         },
         // When a feature (neighborhood) is clicked, it is enlarged to fit the screen
@@ -140,7 +142,8 @@ d3.json(url2, function (data) {
         }
       });
       // Giving each feature a pop-up with information pertinent to it
-      layer.bindPopup("<h1>" + feature.properties.ID + "</h1> <hr> <h2>" + feature.properties.Legend + "</h2>");
+      //layer.bindPopup("<h1>" + feature.properties.ID + "</h1> <hr> <h2>" + feature.properties.Legend + "</h2>");
+      layer.bindPopup("<h2>Region " + feature.properties.ID + " of type " + feature.properties.Legend + "</h2><hr>" + '<form role="form">  <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            Analyze Region</button></form>');
 
     }
   }).addTo(gerrymanders);

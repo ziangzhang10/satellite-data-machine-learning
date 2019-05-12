@@ -4,12 +4,7 @@ import pandas as pd
 import json
 import geojson  # can't use geojson because Heroku is a b****
 
-
 from flask import Flask, jsonify, render_template, url_for
-#from flask_sqlalchemy import SQLAlchemy
-#from flask_bootstrap import Bootstrap
-
-#import sqlite3
 
 app = Flask(__name__)
 #Bootstrap(app) 
@@ -23,10 +18,17 @@ app = Flask(__name__)
 def houston_geojson():
     """Return the geojson page for mapping."""
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    # If you don't specify "THIS_FOLDER", the app can still run locally but won't render on Heroku
+    # Brilliant, isn't it? Yeah, right...
     filepath = os.path.join(THIS_FOLDER, "static", "json", "houston_.geojson")
     with open(filepath, 'r') as f:
         houston_geojson = geojson.load(f) 
     return jsonify(houston_geojson)
+
+@app.route("/specific_analysis")
+def specific_analysis():
+    """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
+    return render_template("specific_analysis.html")
 
 @app.route("/map")
 def map():

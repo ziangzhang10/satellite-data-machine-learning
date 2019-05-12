@@ -143,7 +143,7 @@ d3.json(url2, function (data) {
       });
       // Giving each feature a pop-up with information pertinent to it
       //layer.bindPopup("<h1>" + feature.properties.ID + "</h1> <hr> <h2>" + feature.properties.Legend + "</h2>");
-      layer.bindPopup("<h2>Region " + feature.properties.ID + " of type " + feature.properties.Legend + "</h2><hr>" + '<form role="form">  <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            Analyze Region</button></form>');
+      layer.bindPopup("<h2>Region " + feature.properties.ID + " of type " + feature.properties.Legend + "</h2><hr>" + '<form role="form" action="specific_analysis" >  <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            Analyze Region</button></form>');
 
     }
   }).addTo(gerrymanders);

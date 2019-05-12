@@ -41,13 +41,13 @@
                     <span class="icon-bar"></span>
                 </button>
             <!-- <a class="navbar-brand" href="#myPage" id="mainBoxFull"> -->
-            <a href="#myPage" id="mainBoxFull">
+            <a href="{{ url_for('index') }}" id="mainBoxFull">
                     <img src="/static/icons/sputnik.png" , width="50" , height="50" , alt="Logo">
                   </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#myPage">HOME</a></li>
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
                     <li><a href="#data">DATA</a></li>
                     <li><a href="#algorithm">ALGORITHM</a></li>
                     <li><a href="#analysis">ANALYSIS</a></li>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Satellite Data Machine Learning</title>
+  <link rel="icon" href="/static/icons/sputnik.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <!-- <a class="navbar-brand" href="#myPage" id="mainBoxFull"> -->
+      <a href="{{ url_for('index') }}" id="mainBoxFull">
+        <img src="/static/icons/sputnik.png" , width="50" , height="50" , alt="Logo">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="#data">DATA</a></li>
+        <li><a href="#algorithm">ALGORITHM</a></li>
+        <li><a href="#analysis">ANALYSIS</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Extras</a></li>
+            <li><a href="#">Contact Us</a></li> 
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Container (The Main Section) -->
+<div id="main" class="container text-center">
+  <h3>Analysis Report on region %i</h3>
+
+  <p style="text-align:left">Blah, Blah, Blah.</p>
+<br>
+  <!-- Button to introduce map -->
+  <button class="btn" data-toggle="modal" data-target="#myModal">Explore Some More</button>
+  <!-- <form action="{{ url_for('map') }}">
+    <button class="btn" type="submit">BEGIN YOUR JOURNEY</button>
+ </form> -->
+</div>
+
+  <!-- Modal (that shows up after you click the button)-->
+  <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4><span class="glyphicon glyphicon-globe"></span>BEGIN YOUR JOURNEY</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form" action="{{ url_for('map') }}" >
+              <div class="form-group">
+                <label for="psw"><span class="glyphicon glyphicon-search"></span> Search by name</label>
+                <input type="text" class="form-control" id="usrname" placeholder="Houston, TX">
+              </div>
+              <div class="form-group">
+                <label for="usrname"><span class="glyphicon glyphicon-screenshot"></span> Or, input latitude/longitude</label>
+                <input type="number" class="form-control" id="psw" placeholder="29.7604° N, 95.3698° W">
+              </div>
+                <button type="submit" class="btn btn-block">GO! 
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-default pull-left" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span> Cancel
+            </button>
+            <p>Need <a href="#">help?</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Team members: Ahmeda Cheick, Madelaine Davis, ZiAng Zhang</p> 
+  <p>All rights reserved 2019</p> 
+</footer>
+
+<!-- JavaScript -->
+<!-- Why is CSS always at the beginning and JavaScript always at the end? -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+</body>
+</html>

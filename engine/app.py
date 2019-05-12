@@ -6,7 +6,7 @@ import geojson  # can't use geojson because Heroku is a b****
 
 
 from flask import Flask, jsonify, render_template, url_for
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 #from flask_bootstrap import Bootstrap
 
 #import sqlite3

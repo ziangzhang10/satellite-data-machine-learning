@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import json
-#import geojson  # can't use geojson because Heroku is a b****
+import geojson  # can't use geojson because Heroku is a b****
 
 
 from flask import Flask, jsonify, render_template, url_for
@@ -24,7 +24,7 @@ def houston_geojson():
     """Return the geojson page for mapping."""
     filepath = os.path.join("static", "json", "houston_.geojson")
     with open(filepath, 'r') as f:
-        houston_geojson = json.load(f)
+        houston_geojson = geojson.load(f)
     return jsonify(houston_geojson)
 
 @app.route("/map")

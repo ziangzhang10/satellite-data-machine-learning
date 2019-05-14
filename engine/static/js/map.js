@@ -114,7 +114,7 @@ d3.json(url2, function (data) {
     // Style each feature (in this case a region)
     style: function (feature) {
       return {
-        color: "red",
+        color: "blue",
 
         fillOpacity: 0.3,
         weight: 1.5

@@ -65,11 +65,13 @@ var baseMaps = {
 // Overlays that may be toggled on or off
 // var earthquakes = new L.LayerGroup();
 // var faultlines = new L.LayerGroup();
+var zipcodes = new L.LayerGroup();
 var gerrymanders = new L.LayerGroup();
 
 var overlayMaps = {
   // "Earthquakes": earthquakes,
   // "Fault Lines": faultlines
+  "Zip Codes": zipcodes,
   "Gerrymanders": gerrymanders
 };
 
@@ -82,8 +84,8 @@ var overlayMaps = {
 // Create map object and set default layers
 var myMap = L.map("map-id", {
   center: [29.76, -95.36],
-  zoom: 12,
-  layers: [satellite, gerrymanders]
+  zoom: 10,
+  layers: [satellite, zipcodes]
 });
 
 // For the map to fill the window
@@ -112,7 +114,7 @@ d3.json(url2, function (data) {
     // Style each feature (in this case a region)
     style: function (feature) {
       return {
-        color: "red",
+        color: "blue",
 
         fillOpacity: 0.3,
         weight: 1.5
@@ -149,6 +151,55 @@ d3.json(url2, function (data) {
   }).addTo(gerrymanders);
 });
 
+url3 = `/zipcode_geojson`;
+// for the faultlines
+//fetch("tectonicplates-master/GeoJSON/PB2002_boundaries.json")
+//  .then(function(data){
+d3.json(url3, function (data) {
+  console.log(typeof (data));
+  L.geoJson(data, {
+    // Style each feature (in this case a region)
+    style: function (feature) {
+      return {
+        color: "red",
+
+        fillOpacity: 0.3,
+        weight: 1.5
+      };
+    },
+    // Called on each feature
+    onEachFeature: function (feature, layer) {
+      // Set mouse events to change map styling
+      layer.on({
+        // When a user's mouse touches a map feature, the mouseover event calls this function, that feature's opacity changes to 90% so that it stands out
+        mouseover: function (event) {
+          hood = event.target;
+          hood.setStyle({
+            fillOpacity: 0.6
+          });
+        },
+        // When the cursor no longer hovers over a map feature - when the mouseout event occurs - the feature's opacity reverts back to 50%
+        mouseout: function (event) {
+          hood = event.target;
+          hood.setStyle({
+            fillOpacity: 0.3
+          });
+        },
+        // When a feature (neighborhood) is clicked, it is enlarged to fit the screen
+        click: function (event) {
+          myMap.fitBounds(event.target.getBounds());
+        }
+      });
+      // Giving each feature a pop-up with information pertinent to it
+      //layer.bindPopup("<h1>" + feature.properties.ID + "</h1> <hr> <h2>" + feature.properties.Legend + "</h2>");
+      layer.bindPopup("<h2>ZIP Code " + feature.properties.ZIP + "</h2><hr>" + '<form role="form" action="specific_analysis" >  <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
+      // layer.on('mouseover', function() { layer.openPopup(); });
+      // layer.on('mouseout', function() { layer.closePopup(); });
+    }
+  }).addTo(zipcodes);
+});
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // END CREATING MAP
@@ -174,4 +225,4 @@ legend.onAdd = function (map) {
 };
 // NEED TO CHANGE CSS AS WELL, ALAS..
 
-legend.addTo(myMap);
+//legend.addTo(myMap);

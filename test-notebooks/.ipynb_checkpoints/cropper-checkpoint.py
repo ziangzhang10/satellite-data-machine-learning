@@ -34,7 +34,7 @@ def image_cropper(image):
     print("---"*30)
 
     # splitting the resized image along side axis 1 (i.e column or vertical split)
-    vertical_images = numpy.split(resized_image, indices_or_sections = vertical_split, axis=1)
+    vertical_images = np.split(resized_image, indices_or_sections = vertical_split, axis=1)
 
     print(f"The resized image has been vertically divided into {len(vertical_images)} segments.")
     print("---"*30)

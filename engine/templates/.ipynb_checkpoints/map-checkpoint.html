@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Satellite Data Machine Learning</title>
+  <link rel="icon" href="/static/icons/sputnik.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+
+  <!-- Icons -->
+  <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/leaflet.extra-markers.min.css') }}">
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <!-- <a class="navbar-brand" href="#myPage" id="mainBoxFull"> -->
+            <a href="{{ url_for('index') }}" id="mainBoxFull">
+                    <img src="/static/icons/sputnik.png" , width="50" , height="50" , alt="Logo">
+                  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
+                    <li><a href="#data">DATA</a></li>
+                    <li><a href="#algorithm">ALGORITHM</a></li>
+                    <li><a href="#analysis">ANALYSIS</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Extras</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div></br></br></div>
+
+
+
+    <!-- Map Kind of thing -->
+
+    <div id="map-id" class="container fill"></div>
+    <!-- D3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+    <!-- MomentJS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+    <!-- Icons -->
+    <script src="{{ url_for('static', filename='js/leaflet.extra-markers.min.js') }}"></script>
+    <!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <!-- API Key -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <!-- Map part over -->
+
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br><br>
+        <p>Team members: Ahmeda Cheick, Madelaine Davis, ZiAng Zhang</p>
+        <p>All rights reserved 2019</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- Why is CSS always at the beginning and JavaScript always at the end? -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,12 +1,13 @@
 # Import dependencies 
 import numpy as np 
+import itertools
 
-
-def image_cropper(image):
+def image_cropper(image): 
     
     """ Takes in any rectangular shaped image, resizes it to a multiplier of 28x28 and cuts it into as many possible 
     28x28 images. """
     
+#     import numpy as np
     ## getting the nearest 28 mutplier and resizing the imge 
     # get x and y for the new shape
     x = image.shape[0] - image.shape[0]%28
@@ -56,6 +57,6 @@ def image_cropper(image):
     print("Done! Below is a 28x28 image from the top left corner of our resized image")
 
     # plot the 28 x 28 picture at the top left corner 
-    plt.imshow(image_list[0])
+#     plt.imshow(image_list[0])
     
     return image_list

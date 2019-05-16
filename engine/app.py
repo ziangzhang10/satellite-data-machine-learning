@@ -4,14 +4,14 @@ import pandas as pd
 import json
 import geojson  # can't use geojson because Heroku is a b****
 
-from flask import Flask, jsonify, render_template, url_for
+from flask import Flask, jsonify, render_template, url_for, request
 
 app = Flask(__name__)
 #Bootstrap(app) 
 
 
 #################################################
-# Database Setup
+# Static Databases
 #################################################
 
 @app.route("/zipcode_geojson")
@@ -36,6 +36,10 @@ def houston_geojson():
         zipcode_geojson = geojson.load(f) 
     return jsonify(zipcode_geojson)
 
+#################################################
+# Perform analysis on response
+#################################################
+
 @app.route("/specific_analysis")
 def specific_analysis():
     """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
@@ -44,7 +48,14 @@ def specific_analysis():
 @app.route("/map")
 def map():
     """Return the map."""
+    # if request.method == "POST":
+    #     zipcode = request.form['id']
+    #     return redirect(url_for("specfic_analysis"), code=302)
     return render_template("map.html")
+
+#################################################
+# Homepage
+#################################################
 
 @app.route("/")
 def index():

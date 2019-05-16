@@ -37,13 +37,13 @@ def image_cropper(image):
     # splitting the resized image along side axis 1 (i.e column or vertical split)
     vertical_images = np.split(resized_image, indices_or_sections = vertical_split, axis=1)
 
-    print(f"The resized image has been vertically divided into {len(vertical_images)} segments.")
-    print("---"*30)
-    print(f"The shape of one of those sections/images: {vertical_images[0].shape}.")
-    print("---"*30)
-    print(f"Each of these segments has been divided {horizontal_split} times to create 64 x 64 image.")
-    print("---"*30)
-
+#    print(f"The resized image has been vertically divided into {len(vertical_images)} segments.")
+#    print("---"*30)
+#    print(f"The shape of one of those sections/images: {vertical_images[0].shape}.")
+#    print("---"*30)
+#    print(f"Each of these segments has been divided {horizontal_split} times to create 64 x 64 image.")
+#    print("---"*30)
+#
     # empty list to hold ndarray for each section/image
     nested_list = []
 
@@ -54,7 +54,7 @@ def image_cropper(image):
     # unpakc the nest list to become a list of 3d numpy arrays 
     image_list = list(itertools.chain(*nested_list))
 
-    print("Done! Below is a 64x64 image from the top left corner of our resized image")
+#    print("Done! Below is a 64x64 image from the top left corner of our resized image")
 
     # plot the 64 x 64 picture at the top left corner 
 #     plt.imshow(image_list[0])

@@ -40,14 +40,28 @@ def houston_geojson():
 # Perform analysis on response
 #################################################
 
-@app.route("/specific_analysis", methods = ["GET", "POST"])
+# @app.route("/specific_analysis", methods = ["GET", "POST"])
+# def specific_analysis():
+#     """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
+#     if request.method == "POST":
+#         zipcode = request.form['zip'].replace('/','')
+#         print(zipcode)
+#         return render_template("specific_analysis.html", zip = "00000")
+#     return render_template("specific_analysis.html", zip = "11111")
+
+@app.route("/specific_analysis")
 def specific_analysis():
+    """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
+    return render_template("specific_analysis.html", zip = app.config['curzip'])
+
+@app.route("/getzip", methods = ["GET", "POST"])
+def getzip():
     """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
     if request.method == "POST":
         zipcode = request.form['zip'].replace('/','')
-        print(zipcode)
-        return render_template("specific_analysis.html", zip = "00000")
-    return render_template("specific_analysis.html", zip = "11111")
+        app.config['curzip'] = zipcode
+        return redirect('/specific_analysis', code=302)
+    return "This didn't work"
 
 @app.route("/map")
 def map():

@@ -4,7 +4,7 @@ import pandas as pd
 import json
 import geojson  # can't use geojson because Heroku is a b****
 
-from flask import Flask, jsonify, render_template, url_for, request
+from flask import Flask, jsonify, render_template, url_for, request, redirect
 
 app = Flask(__name__)
 #Bootstrap(app) 

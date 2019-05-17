@@ -1,4 +1,4 @@
-current_zipcode = document.getElementById('current_zipcode').textContent;
+current_zipcode = document.getElementById('current_zipcode').value;
 console.log(current_zipcode);
 
 $(document).ready(function(){

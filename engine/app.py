@@ -40,7 +40,7 @@ def houston_geojson():
 # Perform analysis on response
 #################################################
 
-@app.route("/specific_analysis", methods = ["POST"])
+@app.route("/specific_analysis", methods = ["GET", "POST"])
 def specific_analysis():
     """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
     if request.method == "POST":

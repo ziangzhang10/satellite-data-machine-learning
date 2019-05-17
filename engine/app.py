@@ -46,8 +46,8 @@ def specific_analysis():
     if request.method == "POST":
         zipcode = request.form['zip'].replace('/','')
         print(zipcode)
-        return render_template("specific_analysis.html", zip = zipcode)
-    return render_template("specific_analysis.html")
+        return render_template("specific_analysis.html", zip = "00000")
+    return render_template("specific_analysis.html", zip = "11111")
 
 @app.route("/map")
 def map():

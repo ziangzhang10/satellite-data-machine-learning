@@ -40,17 +40,18 @@ def houston_geojson():
 # Perform analysis on response
 #################################################
 
-@app.route("/specific_analysis")
+@app.route("/specific_analysis", methods = ['POST'])
 def specific_analysis():
     """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
+    if request.method == "POST":
+        zipcode = request.form['zip'].replace('/','')
+        print(zipcode)
+        return render_template("specific_analysis.html", zip = zipcode)
     return render_template("specific_analysis.html")
 
 @app.route("/map")
 def map():
     """Return the map."""
-    # if request.method == "POST":
-    #     zipcode = request.form['id']
-    #     return redirect(url_for("specfic_analysis"), code=302)
     return render_template("map.html")
 
 #################################################

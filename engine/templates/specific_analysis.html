@@ -53,10 +53,12 @@
 
 <!-- Container (The Main Section) -->
 <div id="main" class="container text-center">
-  <h3>ANALYSIS REPORT ON REGION %i</h3>
-
-  <p style="text-align:left">Blah, Blah, Blah.</p>
-<br>
+  <h3>ANALYSIS REPORT ON ZIP CODE {{ zip }}</h3>
+  <p id="current_zipcode">{{ zip }}</p>
+  <br>
+  <!-- INSERT VISUALIZATION !!! -->
+  <div id="myPanel" class="panel-body"></div>
+  <br>
   <!-- Button to introduce map -->
   <button class="btn" data-toggle="modal" data-target="#myModal">EXPLORE SOME MORE</button>
   <!-- <form action="{{ url_for('map') }}">
@@ -111,7 +113,9 @@
 
 <!-- JavaScript -->
 <!-- Why is CSS always at the beginning and JavaScript always at the end? -->
-<script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script> -->
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/specific_analysis.js') }}"></script>
 
 </body>
 </html>

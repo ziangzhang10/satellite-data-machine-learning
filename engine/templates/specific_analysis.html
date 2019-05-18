@@ -58,13 +58,17 @@
   <br>
   <!-- INSERT VISUALIZATION !!! -->
   <row>
-    <div class="col-lg-12" >
+    <div id= "myImg" class="col-lg-12" >
       <img src="/static/images/zip_{{zip}}_rgb.jpg" alt="Image for zipcode {{zip}}">
     </div>
   </row>
   <p id="current_zipcode">{{ zip }}</p>
+  <br>
 
-  <div id="myPanel" class="panel-body"></div>
+  <row>
+    <div id="myBar" class="col-md-6"></div>
+    <div id="myPie" class="col-md-6"></div>
+  </row>
   <br>
 
 

@@ -3,7 +3,7 @@ console.log(current_zipcode);
 
 $(document).ready(function(){
 
-    // Insert satellite image
+    // Insert Bar graph and Pie chart
 
     // Initialize Tooltip
     $('[data-toggle="tooltip"]').tooltip(); 

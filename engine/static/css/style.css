@@ -146,3 +146,9 @@ body {
     display: block; 
     padding: 0px, 0px !important;
   }
+
+  #myImg img{
+      max-width: 100%;
+      max-height: 100%;
+
+  }

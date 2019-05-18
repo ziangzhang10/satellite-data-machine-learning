@@ -1,4 +1,4 @@
-
+var current_zipcode = "00000";
 
 // magnitude to visuals of circle
 var dict = {
@@ -145,7 +145,7 @@ d3.json(url2, function (data) {
       });
       // Giving each feature a pop-up with information pertinent to it
       //layer.bindPopup("<h1>" + feature.properties.ID + "</h1> <hr> <h2>" + feature.properties.Legend + "</h2>");
-      layer.bindPopup("<h2>Region " + feature.properties.ID + " of type " + feature.properties.Legend + "</h2><hr>" + '<form role="form" action="/specific_analysis" > <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
+      // layer.bindPopup("<h2>Region " + feature.properties.ID + " of type " + feature.properties.Legend + "</h2><hr>" + '<form role="form" action="/specific_analysis" > <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
       // layer.bindPopup("<h2>Region " + feature.properties.ID + " of type " + feature.properties.Legend + "</h2><hr>" + '<form role="form" id="myForm" method="POST" action="/map" > <input type="hidden" id= "hiddenField" name="id" value="" /> <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
       // function mySubmit() {
       //   document.getElementById('hiddenField').value = feature.properties.ID;
@@ -196,9 +196,12 @@ d3.json(url3, function (data) {
       });
       // Giving each feature a pop-up with information pertinent to it
       //layer.bindPopup("<h1>" + feature.properties.ID + "</h1> <hr> <h2>" + feature.properties.Legend + "</h2>");
-      layer.bindPopup("<h2>ZIP Code " + feature.properties.ZIP + "</h2><hr>" + '<form role="form" action="specific_analysis" >  <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
+      // layer.bindPopup("<h2>ZIP Code " + feature.properties.ZIP + "</h2><hr>" + '<form role="form" action="specific_analysis" >  <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
+      //layer.bindPopup("<h2>ZIP Code " + feature.properties.ZIP + "</h2><hr>" + '<form role="form" action="/specific_analysis" method="POST">   <input type="hidden" id= "hiddenField" name="zip" value='+  feature.properties.ZIP + '/>    <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
+      layer.bindPopup("<h2>ZIP Code " + feature.properties.ZIP + "</h2><hr>" + '<form role="form" method="POST" action="/getzip">   <input type="hidden" id= "hiddenField" name="zip" value='+  feature.properties.ZIP + '/>    <button type="submit" class="btn btn-block"><span class="glyphicon glyphicon-scale"></span>            ANALYZE REGION</button></form>');
       // layer.on('mouseover', function() { layer.openPopup(); });
       // layer.on('mouseout', function() { layer.closePopup(); });
+      current_zipcode = feature.properties.ZIP;
     }
   }).addTo(zipcodes);
 });

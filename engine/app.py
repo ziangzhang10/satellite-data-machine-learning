@@ -4,10 +4,10 @@ import pandas as pd
 import json
 import geojson  # can't use geojson because Heroku is a b****
 
-from flask import Flask, jsonify, render_template, url_for, request
+from flask import Flask, jsonify, render_template, url_for, request, redirect
 
 app = Flask(__name__)
-#Bootstrap(app) 
+#Bootstrap(app)   
 
 
 #################################################
@@ -40,18 +40,52 @@ def houston_geojson():
 # Perform analysis on response
 #################################################
 
+# @app.route("/specific_analysis", methods = ["GET", "POST"])
+# def specific_analysis():
+#     """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
+#     if request.method == "POST":
+#         zipcode = request.form['zip'].replace('/','')
+#         print(zipcode)
+#         return render_template("specific_analysis.html", zip = "00000")
+#     return render_template("specific_analysis.html", zip = "11111")
+
 @app.route("/specific_analysis")
 def specific_analysis():
     """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
-    return render_template("specific_analysis.html")
+    return render_template("specific_analysis.html", zip = app.config['curzip'])
+
+@app.route("/getzip", methods = ["GET", "POST"])
+def getzip():
+    """This is the specific analysis that pops out when you click a region, not the comprehensive one on the navbar."""
+    if request.method == "POST":
+        zipcode = request.form['zip'].replace('/','')
+        app.config['curzip'] = zipcode
+        return redirect('/specific_analysis', code=302)
+    return "This didn't work"
 
 @app.route("/map")
 def map():
     """Return the map."""
-    # if request.method == "POST":
-    #     zipcode = request.form['id']
-    #     return redirect(url_for("specfic_analysis"), code=302)
     return render_template("map.html")
+
+#################################################
+# THE FOUR HORSEMAN ON THE NAVBAR
+#################################################
+
+@app.route("/analysis")
+def analysis():
+    """Return the analysis page (Tableau embedded)."""
+    return render_template("analysis.html")
+
+@app.route("/model")
+def model():
+    """Return the model page."""
+    return render_template("model.html")
+
+@app.route("/data")
+def data():
+    """Return the data page."""
+    return render_template("data.html")
 
 #################################################
 # Homepage

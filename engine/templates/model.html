@@ -53,7 +53,43 @@
 
 <!-- Container (The Main Section) -->
 <div></br></br></div>
+<div id="main" class="container text-center">
+  <h3>Our Model : Fine-Tuned ResNet-50 Neural Network</h3>
 
+  <br>
+  <p>ResNet is the Convolutinal Neural Netwrks of Microsoft team that won ILSRVC 2015 competetiona and surpass the human performance on ImageNet dataset. REsNet 50 is one of the version provided in experiments.</p>
+  <p> As the name of the network indicates, the new terminology that this network introduces is residual learning.</p>
+  <br>
+
+  <row>
+    <div class="myImg col-lg-12" >
+      <img src="/static/images/residual_learning.png" alt="Model">
+    </div>
+  </row>
+
+  <br>
+  <p>Now that we have all the trainable parameters of our base network (ResNet-50), we would like to add a classifier on top of the convolutional base. We will simply add a fully connected layer followed by a softmax layer with 10 outputs.</p>
+  <br>
+  <!-- INSERT VISUALIZATION !!! -->
+  <row>
+    <div class="myImg col-lg-12" >
+      <img src="/static/images/resnet.jpeg" alt="Model">
+    </div>
+  </row>
+
+  <br>
+  <p>After training for 20 epochs which took 6 hours on 8 CPUs, we were able to achieve a 96.6% accuracy with our model.</p>
+  <row>
+    <div class="myImg col-lg-12" >
+      <img src="/static/images/model_accuracy.png" alt="Model">
+    </div>
+  </row>
+  <br>
+
+  <h4>References</h4>
+  <p>[1] Deep Residual Learning for Image Recognition. fkahe, v-xiangz, v-shren, jiansung@microsoft.com arXiv:1512.03385v1 [cs.CV] 10 Dec 2015</p>
+  <p>[2] https://medium.com/@sachinsharma9780/hands-on-experience-on-achieving-state-of-the-art-results-on-classifying-eurosat-satellite-images-91a9897f7433</p>
+  <br>
 
 
 

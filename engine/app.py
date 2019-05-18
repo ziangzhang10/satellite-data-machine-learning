@@ -7,7 +7,7 @@ import geojson  # can't use geojson because Heroku is a b****
 from flask import Flask, jsonify, render_template, url_for, request, redirect
 
 app = Flask(__name__)
-#Bootstrap(app) 
+#Bootstrap(app)   
 
 
 #################################################
@@ -67,6 +67,25 @@ def getzip():
 def map():
     """Return the map."""
     return render_template("map.html")
+
+#################################################
+# THE FOUR HORSEMAN ON THE NAVBAR
+#################################################
+
+@app.route("/analysis")
+def analysis():
+    """Return the analysis page (Tableau embedded)."""
+    return render_template("analysis.html")
+
+@app.route("/model")
+def model():
+    """Return the model page."""
+    return render_template("model.html")
+
+@app.route("/data")
+def data():
+    """Return the data page."""
+    return render_template("data.html")
 
 #################################################
 # Homepage

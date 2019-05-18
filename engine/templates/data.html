@@ -52,64 +52,11 @@
 </nav>
 
 <!-- Container (The Main Section) -->
-<div id="main" class="container text-center">
-  <h3>ANALYSIS REPORT ON ZIP CODE {{ zip }}</h3>
-
-  <br>
-  <!-- INSERT VISUALIZATION !!! -->
-  <row>
-    <div class="col-lg-12" >
-      <img src="/static/images/zip_{{zip}}_rgb.jpg" alt="Image for zipcode {{zip}}">
-    </div>
-  </row>
-  <p id="current_zipcode">{{ zip }}</p>
-
-  <div id="myPanel" class="panel-body"></div>
-  <br>
+<div></br></br></div>
 
 
-  <!-- Button to introduce map -->
-  <button class="btn" data-toggle="modal" data-target="#myModal">EXPLORE SOME MORE</button>
-  <!-- <form action="{{ url_for('map') }}">
-    <button class="btn" type="submit">BEGIN YOUR JOURNEY</button>
- </form> -->
-</div>
 
-  <!-- Modal (that shows up after you click the button)-->
-  <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-      
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h4><span class="glyphicon glyphicon-globe"></span>BEGIN YOUR JOURNEY</h4>
-          </div>
-          <div class="modal-body">
-            <form role="form" action="{{ url_for('map') }}" >
-              <div class="form-group">
-                <label for="psw"><span class="glyphicon glyphicon-search"></span> Search by name</label>
-                <input type="text" class="form-control" id="usrname" placeholder="Houston, TX">
-              </div>
-              <div class="form-group">
-                <label for="usrname"><span class="glyphicon glyphicon-screenshot"></span> Or, input latitude/longitude</label>
-                <input type="number" class="form-control" id="psw" placeholder="29.7604° N, 95.3698° W">
-              </div>
-                <button type="submit" class="btn btn-block">GO! 
-                  <span class="glyphicon glyphicon-ok"></span>
-                </button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-default pull-left" data-dismiss="modal">
-              <span class="glyphicon glyphicon-remove"></span> Cancel
-            </button>
-            <p>Need <a href="#">help?</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
 <!-- Footer -->
 <footer class="text-center">

@@ -152,3 +152,9 @@ body {
       max-height: 100%;
 
   }
+
+  .myPie img{
+    max-width: 50%;
+    max-height: 50%;
+
+}

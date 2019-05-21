@@ -12,6 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 
@@ -52,40 +53,30 @@
 </nav>
 
 <!-- Container (The Main Section) -->
-<div></br></br></div>
-
-
-<!-- Container (The Main Section) -->
 <div id="main" class="container text-center">
-  <h3>EuroSAT : Land Use and Land Cover Classification with Sentinel-2</h3>
-
+  <h3>THIS PAGE IS CURRENTLY UNDER CONSTRUCTION</h3>
+  <p ><em>Please come back soon</em></p>
   <br>
-  <row>
-    <div class="myImg col-lg-12" >
-      <img src="/static/images/eurosat_overview_small.jpg" alt="Eurosat">
-    </div>
-  </row>
-  <p>The
-    Sentinel-2 satellite images are openly and freely accessible provided
-    in the Earth observation program Copernicus. EuroSAT is a novel dataset based on Sentinel-2 satellite images covering 13
-    spectral bands and consisting out of 10 classes with in total 27,000
-    labeled and geo-referenced images.</p>
   <!-- INSERT VISUALIZATION !!! -->
   <row>
-    <div class="myImg col-lg-12" >
-      <img src="/static/images/eurosat_cats.jpg" alt="Eurosat">
+    <div class="col-lg-12" >
+      <img src="/static/pics/under_construction.jpg" alt="Under Construction">
     </div>
   </row>
-  <p>The images
-    measure 64x64 pixels. Each class contains 2,000 to 3,000 image. In total, the dataset has 27,000 geo-referenced images.</p>
   <br>
+  <!-- INSERT VISUALIZATION !!! -->
+  <row>
+      <div class="col-lg-12" >
+      </div>
+    </row>
+</div>
 
-  <h4>References</h4>
-  <p>[1] Eurosat: A novel dataset and deep learning benchmark for land use and land cover classification. Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019 (under review)</p>
-  <p>[2] Introducing EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification. Patrick Helber, Benjamin Bischke, Andreas Dengel. 2018 IEEE International Geoscience and Remote Sensing Symposium, 2018 (accepted)</p>
-  <br>
-
-
+<div id="main" class="container text-center">
+  <!-- Button to introduce map -->
+  <form action="{{ url_for('index') }}">
+    <button class="btn" type="submit">Back to Home</button>
+ </form>
+</div>
 
 <!-- Footer -->
 <footer class="text-center">
@@ -101,6 +92,7 @@
 <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script> -->
 
 <script type="text/javascript" src="{{ url_for('static', filename='js/specific_analysis.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
 
 </body>
 </html>

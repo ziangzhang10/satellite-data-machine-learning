@@ -87,6 +87,21 @@ def data():
     """Return the data page."""
     return render_template("data.html")
 
+@app.route("/team")
+def team():
+    """Return the team page."""
+    return render_template("team.html")
+
+@app.route("/extras")
+def extras():
+    """Return the extras page."""
+    return render_template("extras.html")
+
+@app.route("/contact_us")
+def contact_us():
+    """Return the contact_us page."""
+    return render_template("contact_us.html")
+
 #################################################
 # Homepage
 #################################################

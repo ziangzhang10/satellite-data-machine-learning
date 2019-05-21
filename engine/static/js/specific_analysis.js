@@ -91,7 +91,7 @@ $(document).ready(function () {
     
       img.onload = function () {
           div.appendChild(img);
-          div.append("Sorry, no satellite images was found for ZIP Code "+ current_zipcode+ "!");
+          div.append("Sorry, no satellite images found for ZIP Code "+ current_zipcode+ "!");
       };
     
       img.src = '/static/images/kings_landing.jpg';

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Satellite Data Machine Learning</title>
+  <link rel="icon" href="/static/icons/sputnik.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <!-- <a class="navbar-brand" href="#myPage" id="mainBoxFull"> -->
+      <a href="{{ url_for('index') }}" id="mainBoxFull">
+        <img src="/static/icons/sputnik.png" , width="50" , height="50" , alt="Logo">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('data') }}">DATA</a></li>
+        <li><a href="{{ url_for('model') }}">MODEL</a></li>
+        <li><a href="{{ url_for('analysis') }}">ANALYSIS</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('team') }}">Team</a></li>
+            <li><a href="{{ url_for('extras') }}">Extras</a></li>
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li> 
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Container (The Band Section) -->
+<div id="main" class="container text-center">
+  <h3>THE TEAM</h3>
+  <p><em>When vision meets technology</em></p>
+  <p>Our team consists of three members from CS & engineering backgrounds, experienced in data analytics, machine learning, front end development, and backend management.</p>
+  <p>Click on the portraits for more info.</p>
+
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>ZiAng</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="/static/pics/ziang.jpg" class="img-circle person" alt="ZiAng" width="255" height="255">
+      </a>
+      <div id="demo" class="collapse">
+        <p>Data scientist currently working as a research geophysicist in an leading Oil and Gas service company. Encompasses a PhD in Computational Materials Science (Rice University 2016). Completed multiple courses in Data Science and Machine Learning. Proficient in computer simulation, data processing and programming, especially C, C++, Python, which positions me well for a role in data science. </p>
+        <p>Great team player and presenter, formally trained in public speaking. Served as entrepreneurial fellow at the Jones School of Rice University from 2015 to 2016.</p>
+        <p>Won award for the 2019 Geotech Innovation Program, a startup competition offered by the UAE Space Agency. Currently serving as tech lead for the business incubation program. Company to launch in June.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Madelaine</strong></p><br>
+      <a href="#demo2" data-toggle="collapse">
+        <img src="/static/pics/maddy.jpg" class="img-circle person" alt="Madelaine" width="255" height="255">
+      </a>
+      <div id="demo2" class="collapse">
+        <p>Database Engineer & AWS Developer. Always result oriented with a proven track record in IT & Business Operations. I find rewards in overcoming challenges within the field of Technology. Any problem can be resolved through a solution or service rendered by investigation and strategy. My experience in Services and Solutions in software and hardware to be comfortable in any setting. I have resolved and prevented problems on site real-time or remote to a variety of different products, customers and departments at HPE & Sysco. I excel in a fast pace and rewarding environment.  Senior in Hardware & Software Test methodologies. An expert in testing tools and processes with the knowledge to lead in collecting, organizing, maintaining and demonstrating data to identify, resolve and support healthy business infrastructure. My links: https://www.linkedin.com/in/madelaine-davis-9b808721/  MyCode: https://github.com/MadDav-Sys</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Ahmeda</strong></p><br>
+      <a href="#demo3" data-toggle="collapse">
+        <img src="/static/pics/ahmeda.jpg" class="img-circle person" alt="Ahmeda" width="255" height="255">
+      </a>
+      <div id="demo3" class="collapse">
+        <p>Industrial Engineer certified in Project Management and a driven Data Analyst with a strong background in mathematics and statistics.</p>
+        <p>Possesses excellent leadership and communication skills, fluent in four languages, and most importantly, adept at working independently and collaborating with teams across multiple functions and backgrounds.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Team members: Ahmeda Cheick, Madelaine Davis, ZiAng Zhang</p> 
+  <p>All rights reserved 2019</p> 
+</footer>
+
+<!-- JavaScript -->
+<!-- Why is CSS always at the beginning and JavaScript always at the end? -->
+<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script> -->
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/specific_analysis.js') }}"></script>
+
+</body>
+</html>

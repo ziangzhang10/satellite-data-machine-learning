@@ -5,7 +5,7 @@ backcall==0.1.0
 bleach==3.1.0
 boto3==1.9.145
 botocore==1.12.145
-certifi==2019.3.9
+certifi==2022.12.7
 colorama==0.4.1
 cycler==0.10.0
 decorator==4.4.0
